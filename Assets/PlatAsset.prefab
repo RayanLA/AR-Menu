@@ -94,7 +94,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959491082821002174}
-  m_Text: Pizza napolitaine
+  m_Text: Pizza napolitaine tot
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -241,6 +241,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 753739268937676534}
+  - component: {fileID: -1279057568898293187}
   m_Layer: 0
   m_Name: PlatAsset
   m_TagString: Untagged
@@ -266,6 +267,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-1279057568898293187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5782872759577316107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d192afd9260d23644b5b5789066d4962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nom: Pizza
+  prix: 12
+  model3D: {fileID: 8307294755260846490}
 --- !u!1 &8307294755260846490
 GameObject:
   m_ObjectHideFlags: 0
