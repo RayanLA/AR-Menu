@@ -10,10 +10,6 @@ public class PlatAsset : MonoBehaviour
 	public int prix = 0;
 	public GameObject model3D;
 
-	// Inner field
-	
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +28,6 @@ public class PlatAsset : MonoBehaviour
     	GameObject temp = Instantiate(model3D, position, rotation);  
     	temp.transform.SetParent(_model3D.transform.parent); 
     	DestroyImmediate(_model3D); 
-        
     }
 
     // Update is called once per frame
