@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nom: Pizza
-  prix: 12
+  prix: 2
   model3D: {fileID: 8307294755260846490}
 --- !u!1 &8307294755260846490
 GameObject:
