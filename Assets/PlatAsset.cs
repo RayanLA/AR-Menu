@@ -7,7 +7,7 @@ public class PlatAsset : MonoBehaviour
 {
 	//Paramètres 
 	public string nom = "";
-	public int prix = 0;
+	public double prix = 0;
 	public GameObject model3D;
 
     // Start is called before the first frame update
@@ -16,9 +16,9 @@ public class PlatAsset : MonoBehaviour
 		//GameObject _NomPlat = gameObject.Transform.GetChild(0).gameObject;// .Find("NomPlat"); 
 		GameObject _NomPlat = gameObject.transform.Find("NomPlat").gameObject;// .Find("NomPlat"); 
     	_NomPlat.GetComponent<TextMesh>().text = nom; 
-    	_NomPlat.GetComponent<TextMesh>().alignment = TextAlignment.Center; 
- 
-    	GameObject _prix = gameObject.transform.Find("Prix").gameObject; 
+    	_NomPlat.GetComponent<TextMesh>().alignment = TextAlignment.Center;
+
+        GameObject _prix = gameObject.transform.Find("Prix").gameObject; 
     	_prix.GetComponent<TextMesh>().text = Convert.ToString(prix)+" €";  
     	_prix.GetComponent<TextMesh>().alignment = TextAlignment.Center;  
  
