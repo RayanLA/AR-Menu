@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 7585690586304053462}
   - component: {fileID: 2411601671741278602}
   m_Layer: 0
-  m_Name: Pizza_Mesh
+  m_Name: Model3D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
