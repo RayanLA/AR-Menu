@@ -963,23 +963,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1279057568898293187, guid: 082c3d438c7c7a94d94fab79eb3f7e5b, type: 3}
       propertyPath: nom
-      value: Ramen
+      value: Saumon et riz
       objectReference: {fileID: 0}
     - target: {fileID: -1279057568898293187, guid: 082c3d438c7c7a94d94fab79eb3f7e5b, type: 3}
       propertyPath: prix
-      value: 15
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: -1279057568898293187, guid: 082c3d438c7c7a94d94fab79eb3f7e5b, type: 3}
       propertyPath: model3D
       value: 
-      objectReference: {fileID: 5038553815792457876, guid: dfd3c0c49dea99f4d8007443e74f72e8, type: 3}
+      objectReference: {fileID: 6847091276152245048, guid: 3947356147e23a74492d5892c3d3c411, type: 3}
     - target: {fileID: 753739268937676534, guid: 082c3d438c7c7a94d94fab79eb3f7e5b, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 753739268937676534, guid: 082c3d438c7c7a94d94fab79eb3f7e5b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -50.4
+      value: 4.1
       objectReference: {fileID: 0}
     - target: {fileID: 753739268937676534, guid: 082c3d438c7c7a94d94fab79eb3f7e5b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -987,7 +987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 753739268937676534, guid: 082c3d438c7c7a94d94fab79eb3f7e5b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.07077184
+      value: 119.7
       objectReference: {fileID: 0}
     - target: {fileID: 753739268937676534, guid: 082c3d438c7c7a94d94fab79eb3f7e5b, type: 3}
       propertyPath: m_LocalRotation.w

@@ -7,7 +7,7 @@ public class PlatAsset : MonoBehaviour
 {
 	//Paramètres 
 	public string nom = "";
-	public int prix = 0;
+	public double prix = 0;
 	public GameObject model3D;
 
     // Start is called before the first frame update
