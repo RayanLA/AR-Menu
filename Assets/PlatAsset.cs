@@ -10,6 +10,7 @@ public class PlatAsset : MonoBehaviour
 	public double prix = 0;
 	public GameObject model3D;
 
+	private GameObject _model3D;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,18 +23,24 @@ public class PlatAsset : MonoBehaviour
     	_prix.GetComponent<TextMesh>().text = Convert.ToString(prix)+" €";  
     	_prix.GetComponent<TextMesh>().alignment = TextAlignment.Center;  
  
-    	GameObject _model3D = gameObject.transform.Find("Model3D").gameObject; 
+        _model3D = gameObject.transform.Find("Model3D").gameObject; 
     	//Replace existing object  
     	Quaternion rotation = _model3D.transform.rotation; 
         Vector3 position = _model3D.transform.position; 
     	GameObject temp = Instantiate(model3D, position, rotation);  
     	temp.transform.SetParent(_model3D.transform.parent); 
+    	/*
     	DestroyImmediate(_model3D); 
+    */
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+	    //Replace existing object  
+	    Quaternion rotation = _model3D.transform.rotation; 
+	    Vector3 position = _model3D.transform.position; 
+	    GameObject temp = Instantiate(model3D, position, rotation);  
+	    temp.transform.SetParent(_model3D.transform.parent); 
     }
 }

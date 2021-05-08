@@ -11,7 +11,7 @@ public class DishScript : MonoBehaviour
     public GameObject prefab;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         
         //Texte
@@ -32,6 +32,7 @@ public class DishScript : MonoBehaviour
         
         Vector3 position = gameObject.transform.position;
         GameObject o = Instantiate(prefab, position, Quaternion.identity);
+        o.transform.parent = transform.root;
     }
 
     // Update is called once per frame
