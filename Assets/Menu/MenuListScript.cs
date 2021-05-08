@@ -13,6 +13,8 @@ public class MenuListScript : MonoBehaviour
 
     private const float Speed = 4f;
     private float _currentSpeed = Speed;
+
+    private readonly HashSet<DishScript> _displayedDishes = new HashSet<DishScript>();
     // Start is called before the first frame update
     public void Awake()
     {
@@ -46,7 +48,7 @@ public class MenuListScript : MonoBehaviour
         }
     }
 
-    public void UpdatePosition()
+    private void UpdatePosition()
     {
         foreach (var currentDish in _instanceList)
         {
@@ -54,10 +56,12 @@ public class MenuListScript : MonoBehaviour
             if (currentDish.gameObject.transform.position.x < transform.position.x - 10 || currentDish.gameObject.transform.position.x > transform.position.x + 25)
             {
                 currentDish.gameObject.SetActive(false);
+                _displayedDishes.Remove(currentDish);
             }
             else
             {
                 currentDish.gameObject.SetActive(true);
+                _displayedDishes.Add(currentDish);
             }
         }
     }
