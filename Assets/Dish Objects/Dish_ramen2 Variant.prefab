@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2645626303633423745
+--- !u!1001 &905001349002220857
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,16 +9,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1169235646866545767, guid: 629ae90a4831485a991bbddd7287418f, type: 3}
       propertyPath: nom
-      value: Saumon et riz
+      value: Ramens au poulet
       objectReference: {fileID: 0}
     - target: {fileID: 1169235646866545767, guid: 629ae90a4831485a991bbddd7287418f, type: 3}
       propertyPath: prix
-      value: 8.5
+      value: 8.99
       objectReference: {fileID: 0}
     - target: {fileID: 1169235646866545767, guid: 629ae90a4831485a991bbddd7287418f, type: 3}
       propertyPath: prefab
       value: 
-      objectReference: {fileID: 6847091276152245048, guid: 7fdfaa2ba1dfe7f4a9f6f901fd5c6c08, type: 3}
+      objectReference: {fileID: 4433281525564715887, guid: f69799bd7d1e16e49bf7831c09870ddd, type: 3}
     - target: {fileID: 1844792135795075125, guid: 629ae90a4831485a991bbddd7287418f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1844792135795075127, guid: 629ae90a4831485a991bbddd7287418f, type: 3}
       propertyPath: m_Name
-      value: Dish_Salmon Lunch Variant
+      value: Dish_ramen2 Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 629ae90a4831485a991bbddd7287418f, type: 3}
