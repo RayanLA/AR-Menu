@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1844792135795075127, guid: 629ae90a4831485a991bbddd7287418f, type: 3}
       propertyPath: m_Name
-      value: test dish1 object
+      value: test dish1 object Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 629ae90a4831485a991bbddd7287418f, type: 3}
