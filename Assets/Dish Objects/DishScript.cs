@@ -26,9 +26,11 @@ public class DishScript : MonoBehaviour
         // name3d.text = name;
         //
         // Instantiate(theText, new Vector3(0, 0, (float)2), Quaternion.identity);
+        GameObject nameTemplate = gameObject.transform.Find("NameTemplate").gameObject; 
+        nameTemplate.GetComponent<TextMesh>().text = Convert.ToString(nom);
         GameObject priceTemplate = gameObject.transform.Find("PriceTemplate").gameObject; 
         priceTemplate.GetComponent<TextMesh>().text = Convert.ToString(prix)+" €";  
-        priceTemplate.GetComponent<TextMesh>().alignment = TextAlignment.Center; 
+        // priceTemplate.GetComponent<TextMesh>().alignment = TextAlignment.Center; 
         
         Vector3 position = gameObject.transform.position;
         GameObject o = Instantiate(prefab, position, Quaternion.identity);
