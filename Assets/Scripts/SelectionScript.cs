@@ -10,6 +10,9 @@ public class SelectionScript : MonoBehaviour
     public MenuListScript menuListScript;
 
     private List<Vector3> _positions = new List<Vector3>();
+    private int windowBegin = 0;
+    private float windowLeft = 0.0f;
+    private float windowRight = 0.0f;
 
     private void Awake()
     {
@@ -23,19 +26,23 @@ public class SelectionScript : MonoBehaviour
         {
             Vector3 pos = transform.GetChild(i).transform.position;
             _positions.Add(new Vector3(pos.x, pos.y, pos.z));
+            menuListScript.instanceList[i].gameObject.transform.position = pos;
+            menuListScript.instanceList[i].gameObject.SetActive(true);
+            Debug.Log("i = " + i + " posx = " + pos.x);
+            if (i == 0)
+            {
+                windowRight = pos.x; 
+            }
+            if (i == 3)
+            {
+                windowLeft = pos.x; 
+            }
+            
         }
 
-        for (int i = 0; i < menuListScript.instanceList.Count; i++)
+        for (int i = 4; i < menuListScript.instanceList.Count; i++)
         {
-            if (i < 4)
-            { 
-                menuListScript.instanceList[i].gameObject.transform.position = _positions[i];
-                menuListScript.instanceList[i].gameObject.SetActive(true);
-            }
-            else
-            {
-                menuListScript.instanceList[i].gameObject.SetActive(false);
-            }
+            menuListScript.instanceList[i].gameObject.SetActive(false);
         }
     }
 
@@ -46,35 +53,48 @@ public class SelectionScript : MonoBehaviour
 
     void SetPositions()
     {
+        print(windowBegin);
         for (int i = 0; i < menuListScript.instanceList.Count; i++)
         {
-            if (i < 4)
-            { 
-                Debug.Log(_positions[i]);
-                menuListScript.instanceList[i].gameObject.transform.position = Vector3.MoveTowards(menuListScript.instanceList[i].gameObject.transform.position, _positions[i], Time.deltaTime);
+            float posX = menuListScript.instanceList[i].gameObject.transform.position[0];
+            if (posX<=windowLeft && posX>=windowRight-7)
+            {//element se trouve dans la fenêtre 
                 menuListScript.instanceList[i].gameObject.SetActive(true);
             }
             else
-            {
+            {//element ne se trouve pas dans la fenêtre et ne doit pas être affiché
+                Debug.Log(posX + ";    " + windowLeft + ";     " + windowRight);
                 menuListScript.instanceList[i].gameObject.SetActive(false);
             }
         }
     }
 
+    
+
     public void MoveLeft()
     {
-        var first = menuListScript.instanceList[0];
-        menuListScript.instanceList.RemoveAt(0);
-        menuListScript.instanceList.Add(first);
+        Vector3 currentPos = new Vector3();
+        Vector3 previousPos = menuListScript.instanceList[menuListScript.instanceList.Count-1].gameObject.transform.position;
+        for (int i = 0; i < menuListScript.instanceList.Count; i++)
+        {
+            currentPos = menuListScript.instanceList[i].gameObject.transform.position;
+            menuListScript.instanceList[i].gameObject.transform.position = previousPos;
+            previousPos = currentPos;
+        }
         SetPositions();
         Debug.Log("moveLeft");
     }
     
     public void MoveRight()
     {
-        var last = menuListScript.instanceList[menuListScript.instanceList.Count];
-        menuListScript.instanceList.RemoveAt(menuListScript.instanceList.Count);
-        menuListScript.instanceList.Insert(0, last);
+        Vector3 currentPos = new Vector3();
+        Vector3 previousPos = menuListScript.instanceList[0].gameObject.transform.position;
+        for (int i = menuListScript.instanceList.Count-1; i >= 0; i--)
+        {
+            currentPos = menuListScript.instanceList[i].gameObject.transform.position;
+            menuListScript.instanceList[i].gameObject.transform.position = previousPos;
+            previousPos = currentPos;
+        }
         SetPositions();
         Debug.Log("moveRight");
     }

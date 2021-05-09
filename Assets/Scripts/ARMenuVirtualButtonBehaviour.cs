@@ -28,7 +28,7 @@ public class ARMenuVirtualButtonBehaviour : MonoBehaviour
 
     void OnButtonPressed(VirtualButtonBehaviour vbb)
     {
-        Debug.Log("Button pressed");
+        //Debug.Log("Button pressed");
         this.button.transform.GetChild(0).GetComponent<MeshRenderer>().material.color = Color.clear;
         if (direction == Direction.Left)
         {
@@ -42,7 +42,7 @@ public class ARMenuVirtualButtonBehaviour : MonoBehaviour
     
     void OnButtonReleased(VirtualButtonBehaviour vbb)
     {
-        Debug.Log("Button released");
+        //Debug.Log("Button released");
         this.button.transform.GetChild(0).GetComponent<MeshRenderer>().material.color = _initialColor;
     }
 }
