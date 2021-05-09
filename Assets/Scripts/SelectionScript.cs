@@ -49,9 +49,14 @@ public class SelectionScript : MonoBehaviour
         for (int i = 0; i < menuListScript.instanceList.Count; i++)
         {
             if (i < 4)
-            { 
-                Debug.Log(_positions[i]);
-                menuListScript.instanceList[i].gameObject.transform.position = Vector3.MoveTowards(menuListScript.instanceList[i].gameObject.transform.position, _positions[i], Time.deltaTime);
+            {
+                if (i == 0)
+                {
+                    Debug.Log(_positions[i]);
+                    Debug.Log(_positions[(i+1)%4]);
+                }
+                
+                menuListScript.instanceList[i].gameObject.transform.position = Vector3.MoveTowards(menuListScript.instanceList[i].gameObject.transform.position, _positions[(i+1)%4], Time.deltaTime);
                 menuListScript.instanceList[i].gameObject.SetActive(true);
             }
             else
@@ -72,8 +77,8 @@ public class SelectionScript : MonoBehaviour
     
     public void MoveRight()
     {
-        var last = menuListScript.instanceList[menuListScript.instanceList.Count];
-        menuListScript.instanceList.RemoveAt(menuListScript.instanceList.Count);
+        var last = menuListScript.instanceList[menuListScript.instanceList.Count - 1];
+        menuListScript.instanceList.RemoveAt(menuListScript.instanceList.Count - 1);
         menuListScript.instanceList.Insert(0, last);
         SetPositions();
         Debug.Log("moveRight");
