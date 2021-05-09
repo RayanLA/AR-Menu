@@ -3,22 +3,27 @@ using System.Collections.Generic;
 using System.Threading;
 using NUnit.Framework.Constraints;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 
 public class MenuListScript : MonoBehaviour
 {
     public List<DishScript> dishList;
+    public int displayCount = 4; // fenetre des plats affichés
+    public float gap = 0.5f; // ecart entre les prefabs de plat affichés
+    public float dishSize = 10; // largeur du prefab d'un plat
     public readonly List<DishScript> instanceList = new List<DishScript>();
     private bool _moving;
 
     private const float Speed = 4f;
     private float _currentSpeed = Speed;
+    private int currentIndex = 0;
 
     private readonly HashSet<DishScript> _displayedDishes = new HashSet<DishScript>();
     // Start is called before the first frame update
     public void Awake()
     {
-        this.SetPositions();
+        this.InitInstances();
         //this._moving = false;
         //UpdatePosition();
     }
@@ -28,27 +33,29 @@ public class MenuListScript : MonoBehaviour
     {
         //if (!_moving) return;
         //UpdatePosition();
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            this.MoveRight();
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            this.MoveLeft();
+        }
+        this.DisplayDish();
     }
 
-    private void SetPositions()
+    private void InitInstances()
     {
-        const float size = 10;
-        const float gap = 0.5f;
-        var nextPosition = gameObject.transform.localPosition;
-        // nextPosition.x -= size / 2;
-        nextPosition.z += size / 2;
-
         foreach (var currentDish in dishList)
         {
-            // currentDish.transform.position = new Vector3(nextPosition, 0, 0);
-            DishScript instance = Instantiate(currentDish, nextPosition, Quaternion.identity);
+            DishScript instance = Instantiate(currentDish, gameObject.transform.localPosition, Quaternion.identity);
             instanceList.Add(instance);
-            //nextPosition.x += (size + gap);
             instance.transform.parent = transform.root;
         }
     }
 
-    private void UpdatePosition()
+    /*private void UpdatePosition()
     {
         foreach (var currentDish in instanceList)
         {
@@ -64,18 +71,47 @@ public class MenuListScript : MonoBehaviour
                 _displayedDishes.Add(currentDish);
             }
         }
+    }*/
+
+    private void DisplayDish()
+    {
+        var position = this.gameObject.transform.localPosition;
+        position.x += dishSize / 2;
+        position.z += dishSize / 2;
+        for (int i = 0; i < instanceList.Count; i++)
+        {
+            if (this.currentIndex <= i && i < this.currentIndex + this.displayCount)
+            {
+                var curInstance = this.instanceList[i];
+                curInstance.gameObject.SetActive(true);
+                curInstance.transform.position = position;
+                position.x += (dishSize + gap);
+            }
+            else
+            {
+                instanceList[i].gameObject.SetActive(false);
+            }
+        }
     }
 
     public void MoveLeft()
     {
-        _moving = true;
-        _currentSpeed = Speed;
+        /*_moving = true;
+        _currentSpeed = Speed;*/
+        if (this.currentIndex > 0)
+        {
+            this.currentIndex--;
+        }
     }
     
     public void MoveRight()
     {
-        _moving = true;
-        _currentSpeed = -Speed;
+        // _moving = true;
+        // _currentSpeed = -Speed;
+        if (currentIndex < dishList.Count - displayCount)
+        {
+            this.currentIndex++;
+        }
     }
 
     public void StopMoving()
