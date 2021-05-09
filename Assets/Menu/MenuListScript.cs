@@ -38,8 +38,10 @@ public class MenuListScript : MonoBehaviour
         // nextPosition.x -= size / 2;
         nextPosition.z += size / 2;
 
+        Debug.Log("Instanciating");
         foreach (var currentDish in dishList)
         {
+            Debug.Log(currentDish);
             // currentDish.transform.position = new Vector3(nextPosition, 0, 0);
             DishScript instance = Instantiate(currentDish, nextPosition, Quaternion.identity);
             instanceList.Add(instance);
@@ -55,7 +57,7 @@ public class MenuListScript : MonoBehaviour
             currentDish.gameObject.transform.position += new Vector3(_currentSpeed * Time.deltaTime, 0, 0);
             if (currentDish.gameObject.transform.position.x < transform.position.x - 10 || currentDish.gameObject.transform.position.x > transform.position.x + 25)
             {
-                currentDish.gameObject.SetActive(false);
+                //currentDish.gameObject.SetActive(false);
                 _displayedDishes.Remove(currentDish);
             }
             else
