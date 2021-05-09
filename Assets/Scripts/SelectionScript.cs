@@ -87,9 +87,14 @@ public class SelectionScript : MonoBehaviour
     
     public void MoveRight()
     {
-        var last = menuListScript.instanceList[menuListScript.instanceList.Count];
-        menuListScript.instanceList.RemoveAt(menuListScript.instanceList.Count);
-        menuListScript.instanceList.Insert(0, last);
+        Vector3 currentPos = new Vector3();
+        Vector3 previousPos = menuListScript.instanceList[0].gameObject.transform.position;
+        for (int i = menuListScript.instanceList.Count-1; i >= 0; i--)
+        {
+            currentPos = menuListScript.instanceList[i].gameObject.transform.position;
+            menuListScript.instanceList[i].gameObject.transform.position = previousPos;
+            previousPos = currentPos;
+        }
         SetPositions();
         Debug.Log("moveRight");
     }
