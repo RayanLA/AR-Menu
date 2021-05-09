@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 210694966937750495, guid: 629ae90a4831485a991bbddd7287418f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1169235646866545767, guid: 629ae90a4831485a991bbddd7287418f, type: 3}
       propertyPath: nom
       value: Ramens au poulet
@@ -25,15 +29,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1844792135795075125, guid: 629ae90a4831485a991bbddd7287418f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 210420
+      value: 39.94
       objectReference: {fileID: 0}
     - target: {fileID: 1844792135795075125, guid: 629ae90a4831485a991bbddd7287418f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.999
       objectReference: {fileID: 0}
     - target: {fileID: 1844792135795075125, guid: 629ae90a4831485a991bbddd7287418f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -11.48
       objectReference: {fileID: 0}
     - target: {fileID: 1844792135795075125, guid: 629ae90a4831485a991bbddd7287418f, type: 3}
       propertyPath: m_LocalRotation.w
