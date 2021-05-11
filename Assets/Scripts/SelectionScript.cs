@@ -13,6 +13,9 @@ public class SelectionScript : MonoBehaviour
     public List<DishScript> dishList;
     
     private List<VirtualButtonBehaviour> ListButtonBehaviour;
+    private int _currentIndex = 0;
+
+    private readonly List<DishScript> _dishInstances = new List<DishScript>();
     //private List<DishScript> instanceDishs;
 
     
@@ -20,10 +23,11 @@ public class SelectionScript : MonoBehaviour
     {
         foreach (var dish in dishList)
         {
-            Instantiate(dish).gameObject.transform.parent = transform.root;
+            DishScript dishInstance = Instantiate(dish, transform.root, true);
+            _dishInstances.Add(dishInstance);
         }
 
-        updateView();
+        UpdateView();
     }
 
     public void Start()
@@ -35,17 +39,39 @@ public class SelectionScript : MonoBehaviour
     {
     }
 
-    public void updateView()
+    public void UpdateView()
     {
         for (int i = 0; i < dishList.Count; i++)
         {
-            Debug.Log(dishList[i].gameObject.name);
-            if (i < virtualButtons.Count)
+            int index = mod(i + _currentIndex, _dishInstances.Count);
+            Debug.Log(_dishInstances[index].gameObject.name);
+            if (i < planes.Count)
             {
-                dishList[i].gameObject.transform.position = planes[i].transform.position;
+                _dishInstances[index].transform.position = planes[i].transform.position;
+                _dishInstances[index].gameObject.SetActive(true);
+            }
+            else
+            {
+                _dishInstances[index].gameObject.SetActive(false);
             }
         }
     }
-    
 
+    public void MoveLeft()
+    {
+        _currentIndex--;
+        UpdateView();
+    }
+    
+    public void MoveRight()
+    {
+        _currentIndex++;
+        UpdateView();
+    }
+    
+    int mod(int n, int x)
+    {
+        return ((n%x)+x)%x;
+    }
+    
 }
