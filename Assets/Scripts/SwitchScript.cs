@@ -19,11 +19,11 @@ public class SwitchScript : MonoBehaviour
     {
         if (selectionScript.SwitchList() == SelectionScript.Lists.Plats)
         {
-            gameObject.transform.Find("SwitchText").gameObject.GetComponent<TextMesh>().text = "Plats";
+            gameObject.transform.Find("SwitchText").gameObject.GetComponent<TextMesh>().text = "Desserts";
         }
         else
         {
-            gameObject.transform.Find("SwitchText").gameObject.GetComponent<TextMesh>().text = "Desserts";
+            gameObject.transform.Find("SwitchText").gameObject.GetComponent<TextMesh>().text = "Plats";
         }
     }
 }
