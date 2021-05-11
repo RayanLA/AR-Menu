@@ -26,12 +26,8 @@ public class MainDisplayScript : MonoBehaviour
         }
 
         _currInstance = Instantiate(dish, gameObject.transform.position, Quaternion.identity, gameObject.transform);
+        _currInstance.transform.Find("NameTemplate").gameObject.GetComponent<TextMesh>().text = "";
         _currInstance.transform.Find("PriceTemplate").gameObject.GetComponent<TextMesh>().text = ""; 
         _currInstance.transform.localScale = new Vector3(3.5f,3.5f,3.5f);
-    }
-
-    public void Hide()
-    {
-        Destroy(_currInstance.gameObject);
     }
 }

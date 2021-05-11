@@ -11,6 +11,7 @@ public class SelectionScript : MonoBehaviour
     public List<GameObject> virtualButtons;
     public List<GameObject> planes;
     public MainDisplayScript mainDisplay;
+    public MainDisplayScript secondDisplay;
     public List<DishScript> plats;
     public List<DishScript> desserts;
     
@@ -49,7 +50,14 @@ public class SelectionScript : MonoBehaviour
             buttonBehaviour.RegisterOnButtonPressed(behaviour =>
             {
                 Debug.Log(behaviour.VirtualButtonName);
-                mainDisplay.DisplayObject(_dishList[mod(buttonIndex + _currentIndex, _dishList.Count)]);
+                if (_currentList == Lists.Plats)
+                {
+                    mainDisplay.DisplayObject(_dishList[mod(buttonIndex + _currentIndex, _dishList.Count)]);
+                }
+                else
+                {
+                    secondDisplay.DisplayObject(_dishList[mod(buttonIndex + _currentIndex, _dishList.Count)]);
+                }
             });
         }
       
@@ -109,7 +117,6 @@ public class SelectionScript : MonoBehaviour
         _currentList = _currentList == Lists.Plats ? Lists.Desserts : Lists.Plats;
         _dishList = _currentList == Lists.Plats ? plats : desserts;
         UpdateView();
-        mainDisplay.Hide();
         return _currentList;
     }
 
