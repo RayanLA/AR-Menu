@@ -33,11 +33,11 @@ public class ARMenuVirtualButtonBehaviour : MonoBehaviour
         this.button.transform.GetChild(0).GetComponent<MeshRenderer>().material.color = Color.clear;
         if (direction == Direction.Left)
         {
-            //selectionScript.MoveLeft();
+            selectionScript.MoveLeft();
         }
         else
         {
-            //selectionScript.MoveRight();
+            selectionScript.MoveRight();
         }
     }
     
