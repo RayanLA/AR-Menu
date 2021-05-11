@@ -11,9 +11,9 @@ public class ARMenuVirtualButtonBehaviour : MonoBehaviour
         Right
     }
     
-    public SelectionScript selectionScript;
     public GameObject button;
     public Direction direction;
+    public MenuListScript menu;
     
     private Color _initialColor;
     private VirtualButtonBehaviour _buttonBehaviour;
@@ -32,11 +32,11 @@ public class ARMenuVirtualButtonBehaviour : MonoBehaviour
         this.button.transform.GetChild(0).GetComponent<MeshRenderer>().material.color = Color.clear;
         if (direction == Direction.Left)
         {
-            selectionScript.MoveLeft();
+            menu.MoveLeft();
         }
         else
         {
-            selectionScript.MoveRight();
+            menu.MoveRight();
         }
     }
     

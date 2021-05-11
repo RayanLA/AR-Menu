@@ -12,27 +12,23 @@ public class MenuListScript : MonoBehaviour
     public int displayCount = 4; // fenetre des plats affichés
     public float gap = 0.5f; // ecart entre les prefabs de plat affichés
     public float dishSize = 10; // largeur du prefab d'un plat
-    public readonly List<DishScript> instanceList = new List<DishScript>();
-    private bool _moving;
-
-    private const float Speed = 4f;
-    private float _currentSpeed = Speed;
-    private int currentIndex = 0;
-
-    private readonly HashSet<DishScript> _displayedDishes = new HashSet<DishScript>();
-    // Start is called before the first frame update
+    
+    private readonly List<DishScript> _instanceList = new List<DishScript>();
+    private int _currentIndex = 0;
+    
     public void Awake()
     {
-        this.InitInstances();
-        //this._moving = false;
-        //UpdatePosition();
+        for (int i = 0; i < dishList.Count; i++)
+        {
+            DishScript instance = Instantiate(dishList[i]);//, gameObject.transform.localPosition, Quaternion.identity);
+            _instanceList.Add(instance);
+            instance.transform.parent = transform.root;
+            instance.name = "Dish "+i;
+        }
     }
 
-    // Update is called once per frame
     public void Update()
     {
-        //if (!_moving) return;
-        //UpdatePosition();
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             this.MoveRight();
@@ -45,83 +41,48 @@ public class MenuListScript : MonoBehaviour
         this.DisplayDish();
     }
 
-    private void InitInstances()
-    {
-        foreach (var currentDish in dishList)
-        {
-            DishScript instance = Instantiate(currentDish, gameObject.transform.localPosition, Quaternion.identity);
-            instanceList.Add(instance);
-            instance.transform.parent = transform.root;
-        }
-    }
-
-    /*private void UpdatePosition()
-    {
-        foreach (var currentDish in instanceList)
-        {
-            currentDish.gameObject.transform.position += new Vector3(_currentSpeed * Time.deltaTime, 0, 0);
-            if (currentDish.gameObject.transform.position.x < transform.position.x - 10 || currentDish.gameObject.transform.position.x > transform.position.x + 25)
-            {
-                currentDish.gameObject.SetActive(false);
-                _displayedDishes.Remove(currentDish);
-            }
-            else
-            {
-                currentDish.gameObject.SetActive(true);
-                _displayedDishes.Add(currentDish);
-            }
-        }
-    }*/
-
     private void DisplayDish()
     {
         var position = this.gameObject.transform.localPosition;
         position.x += dishSize / 2;
         position.z += dishSize / 2;
-        for (int i = 0; i < instanceList.Count; i++)
+        for (int i = 0; i < _instanceList.Count; i++)
         {
-            if (this.currentIndex <= i && i < this.currentIndex + this.displayCount)
+            if (this._currentIndex <= i && i < this._currentIndex + this.displayCount)
             {
-                var curInstance = this.instanceList[i];
+                var curInstance = this._instanceList[i];
                 curInstance.gameObject.SetActive(true);
                 curInstance.transform.position = position;
                 position.x += (dishSize + gap);
             }
             else
             {
-                instanceList[i].gameObject.SetActive(false);
+                _instanceList[i].gameObject.SetActive(false);
             }
         }
     }
 
     public void MoveLeft()
     {
-        /*_moving = true;
-        _currentSpeed = Speed;*/
-        if (this.currentIndex > 0)
+        if (this._currentIndex > 0)
         {
-            this.currentIndex--;
+            this._currentIndex--;
         }
     }
     
     public void MoveRight()
     {
-        // _moving = true;
-        // _currentSpeed = -Speed;
-        if (currentIndex < dishList.Count - displayCount)
+        if (_currentIndex < dishList.Count - displayCount)
         {
-            this.currentIndex++;
+            this._currentIndex++;
         }
     }
 
-    public void StopMoving()
+    
+    public DishScript Select(int index)
     {
-        _moving = false;
+        //index entre 0 et 3
+        return this.dishList[_currentIndex + index];
     }
 
-    public bool Moving
-    {
-        get => _moving;
-        set => _moving = value;
-    }
 }
