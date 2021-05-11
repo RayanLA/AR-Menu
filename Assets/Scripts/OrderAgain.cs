@@ -28,8 +28,8 @@ public class OrderAgain : MonoBehaviour
     void OnButtonPressed(VirtualButtonBehaviour vbb)
     {
         Debug.Log("Order again ");
-        /*_ValidationCommande.displayMenus(true);
-        transform.gameObject.SetActive(false);*/
+        _ValidationCommande.displayMenus(true);
+        transform.gameObject.SetActive(false);
     }
     
 }
