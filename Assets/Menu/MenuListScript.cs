@@ -52,7 +52,7 @@ public class MenuListScript : MonoBehaviour
             {
                 var curInstance = this._instanceList[i];
                 curInstance.gameObject.SetActive(true);
-                curInstance.transform.position = position;
+                curInstance.transform.localPosition = position;
                 position.x += (dishSize + gap);
             }
             else

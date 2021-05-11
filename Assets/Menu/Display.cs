@@ -18,8 +18,9 @@ public class Display : MonoBehaviour
             //currInstance.gameObject.SetActive(false);
             Destroy(currInstance.gameObject);
         }
-        currInstance = Instantiate(menu.Select(index), gameObject.transform.localPosition, Quaternion.identity);
-        currInstance.transform.localScale = new Vector3(3, 3, 3);
-        currInstance.transform.parent = transform.root;
+        currInstance = Instantiate(menu.Select(index));
+        currInstance.transform.parent = transform;
+        currInstance.transform.localPosition = gameObject.transform.localPosition;
+        currInstance.transform.localScale = new Vector3(4, 4, 4);
     }
 }
