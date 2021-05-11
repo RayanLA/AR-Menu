@@ -112,6 +112,23 @@ public class SelectionScript : MonoBehaviour
         }
     }
 
+    public void hideAllDishes()
+    {
+        foreach (var gameObject in _dessertsInstances)
+        {
+            gameObject.gameObject.SetActive(false);
+        }
+        foreach (var gameObject in _platsInstances)
+        {
+            gameObject.gameObject.SetActive(false);
+        }
+    }
+
+    public void showAllDishes()
+    {
+        UpdateView();
+    }
+
     public Lists SwitchList()
     {
         _currentList = _currentList == Lists.Plats ? Lists.Desserts : Lists.Plats;
