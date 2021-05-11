@@ -16,12 +16,11 @@ public class MenuListScript : MonoBehaviour
     public void Awake()
     {
     }
-    
-    public List<Vector3> Positions
+    /*public List<Vector3> Positions
     {
         get => _positions;
         set => _positions = value;
-    }
+    }*/
 
     public void Update()
     {
