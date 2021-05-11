@@ -11,8 +11,9 @@ public class SelectionScript : MonoBehaviour
     public List<GameObject> virtualButtons;
     public List<GameObject> planes;
     public List<DishScript> dishList;
+    public MainDisplayScript mainDisplay;
     
-    private List<VirtualButtonBehaviour> ListButtonBehaviour;
+    private List<VirtualButtonBehaviour> _buttonBehaviours;
     private int _currentIndex = 0;
 
     private readonly List<DishScript> _dishInstances = new List<DishScript>();
@@ -21,6 +22,16 @@ public class SelectionScript : MonoBehaviour
     
     public void Awake()
     {
+        for (int i =0; i < 4; i++)
+        {
+            var buttonBehaviour = virtualButtons[i].GetComponent<VirtualButtonBehaviour>();
+            var buttonIndex = i;
+            buttonBehaviour.RegisterOnButtonPressed(behaviour =>
+            {
+                Debug.Log(behaviour.VirtualButtonName);
+                mainDisplay.DisplayObject(dishList[mod(buttonIndex + _currentIndex, dishList.Count)]);
+            });
+        }
         foreach (var dish in dishList)
         {
             DishScript dishInstance = Instantiate(dish, transform.root, true);
