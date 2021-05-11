@@ -5,10 +5,12 @@ using UnityEngine;
 public class MainDisplayScript : MonoBehaviour
 {
     private DishScript _currInstance;
+    public ValidationCommande _validationCommande;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -21,6 +23,7 @@ public class MainDisplayScript : MonoBehaviour
     {
         if (_currInstance != null)
         {
+            _validationCommande.Montant =  _validationCommande.Montant - _currInstance.prix;
             //currInstance.gameObject.SetActive(false);
             Destroy(_currInstance.gameObject);
         }
@@ -29,5 +32,7 @@ public class MainDisplayScript : MonoBehaviour
         _currInstance.transform.Find("NameTemplate").gameObject.GetComponent<TextMesh>().text = "";
         _currInstance.transform.Find("PriceTemplate").gameObject.GetComponent<TextMesh>().text = ""; 
         _currInstance.transform.localScale = new Vector3(3.5f,3.5f,3.5f);
+        _validationCommande.Montant = _currInstance.prix + _validationCommande.Montant;
+        _validationCommande.updatePrice();
     }
 }
