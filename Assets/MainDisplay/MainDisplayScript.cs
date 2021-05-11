@@ -29,4 +29,9 @@ public class MainDisplayScript : MonoBehaviour
         _currInstance.transform.Find("PriceTemplate").gameObject.GetComponent<TextMesh>().text = ""; 
         _currInstance.transform.localScale = new Vector3(3.5f,3.5f,3.5f);
     }
+
+    public void Hide()
+    {
+        Destroy(_currInstance.gameObject);
+    }
 }
