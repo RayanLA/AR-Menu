@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MainDisplayScript : MonoBehaviour
 {
-    private GameObject _currInstance;
+    private DishScript _currInstance;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +24,9 @@ public class MainDisplayScript : MonoBehaviour
             //currInstance.gameObject.SetActive(false);
             Destroy(_currInstance.gameObject);
         }
-        _currInstance = Instantiate(dish.prefab, gameObject.transform.position, Quaternion.identity, gameObject.transform);
-        _currInstance.transform.localScale = new Vector3(3,3,3);
+
+        _currInstance = Instantiate(dish, gameObject.transform.position, Quaternion.identity, gameObject.transform);
+        _currInstance.transform.Find("PriceTemplate").gameObject.GetComponent<TextMesh>().text = ""; 
+        _currInstance.transform.localScale = new Vector3(3.5f,3.5f,3.5f);
     }
 }

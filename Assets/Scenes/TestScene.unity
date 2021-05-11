@@ -123,35 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!21 &77078121
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'chipsMaterial
-
-    17770'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 86d8967a7c6c4349b3860d7de69c17e6, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &96781545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,7 +1307,7 @@ MonoBehaviour:
   dishList:
   - {fileID: 2069052522860022110, guid: 21fdb7c551a8b3f488bd8ccd56cfa223, type: 3}
   - {fileID: 3787196037707047398, guid: e54f2aec664998f4c90d0b0c88256c10, type: 3}
-  - {fileID: 2069052522860022110, guid: 21fdb7c551a8b3f488bd8ccd56cfa223, type: 3}
+  - {fileID: 7737420434668320271, guid: c83338b056f7690429fb04d4be918041, type: 3}
   - {fileID: 3787196037707047398, guid: e54f2aec664998f4c90d0b0c88256c10, type: 3}
   - {fileID: 3787196037707047398, guid: e54f2aec664998f4c90d0b0c88256c10, type: 3}
   mainDisplay: {fileID: 96781547}
@@ -1552,7 +1523,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 77078121}
+  - {fileID: 1510883114}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1907,6 +1878,35 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!21 &1510883114
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'chipsMaterial
+
+    21828'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 86d8967a7c6c4349b3860d7de69c17e6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1661297448
 GameObject:
   m_ObjectHideFlags: 0
