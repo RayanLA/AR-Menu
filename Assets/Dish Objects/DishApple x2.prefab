@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2769176342707653448, guid: 9a3ad1226716bd046b6d74cf69d6ca9a, type: 3}
       propertyPath: m_Name
-      value: DishTemplate
+      value: DishApple x2
       objectReference: {fileID: 0}
     - target: {fileID: 2769176342707653450, guid: 9a3ad1226716bd046b6d74cf69d6ca9a, type: 3}
       propertyPath: m_RootOrder
@@ -63,5 +63,9 @@ PrefabInstance:
       propertyPath: prix
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 3444662427324186392, guid: 9a3ad1226716bd046b6d74cf69d6ca9a, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 6922802815734332440, guid: ace6110d0aa38e44d98dde9ebe0b532b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a3ad1226716bd046b6d74cf69d6ca9a, type: 3}
