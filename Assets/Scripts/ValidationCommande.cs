@@ -10,11 +10,17 @@ public class ValidationCommande : MonoBehaviour
     private VirtualButtonBehaviour _buttonBehaviour;
     public List<GameObject> menus;
     public List<GameObject> ValidationPopup;
+    public List<GameObject> virtualButtons;
     public SelectionScript PlatsAffiche;
 
     // Start is called before the first frame update
     void Start()
-    {}
+    {
+        foreach (var gameObject in ValidationPopup)
+        {
+            gameObject.SetActive(false);
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -37,6 +43,11 @@ public class ValidationCommande : MonoBehaviour
         foreach (var gameObject in menus)
         {
             gameObject.SetActive(show);
+        }
+        foreach (var gameObject in virtualButtons)
+        {
+            gameObject.SetActive(show);
+            gameObject.GetComponent<VirtualButtonBehaviour>().enabled = show;
         }
         foreach (var gameObject in ValidationPopup)
         {
